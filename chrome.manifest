@@ -1,2 +1,2 @@
-content kludi jar:kludi.jar!/content/ xpcnativewrappers=yes
-overlay chrome://komodo/content/komodo.xul chrome://kludi/content/overlay.xul
+content ludik jar:ludik.jar!/content/ xpcnativewrappers=yes
+overlay chrome://komodo/content/komodo.xul chrome://ludik/content/overlay.xul

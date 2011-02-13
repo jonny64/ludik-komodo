@@ -2,12 +2,12 @@
 <RDF xmlns="http://www.w3.org/1999/02/22-rdf-syntax-ns#" 
      xmlns:em="http://www.mozilla.org/2004/em-rdf#">
     <Description about="urn:mozilla:install-manifest">
-        <em:id>kludi@cheby.ru</em:id>
-        <em:name>Kludi</em:name>
+        <em:id>ludik@cheby.ru</em:id>
+        <em:name>ludik</em:name>
         <em:version>0.1</em:version>
         <em:description></em:description>
         <em:creator>jonny64</em:creator>
-        <em:homepageURL>https://github.com/jonny64/kludi</em:homepageURL>
+        <em:homepageURL>https://github.com/jonny64/ludik</em:homepageURL>
         <em:type>2</em:type> <!-- type=extension --> 
 
         <em:targetApplication>
