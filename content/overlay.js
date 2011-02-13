@@ -1,0 +1,49 @@
+/* Copyright (c) 2011 jonny64 See the file LICENSE.txt for licensing
+/* information. */
+
+var _getCurrentScreenType = function () {
+    var fileName = ko.views.manager.currentView.koDoc.baseName;
+    return fileName.substring(0, fileName.lastIndexOf('.'));
+};
+
+var _gotoSubname = function (subname) {
+        var position = ko.views.manager.currentView.scimoz.text.indexOf(subname);        
+        ko.views.manager.currentView.scimoz.gotoPos(position);
+        ko.views.manager.currentView.scimoz.scrollCaret();
+};
+
+var _switchTo = function (folderType, callbackFn) {
+        var path = ko.views.manager.currentView.koDoc.file.dirName.split('\\');
+        
+        path.splice(path.length - 1, 1, folderType);
+        path.push(_getCurrentScreenType() + '.pm');
+        var fileToOpenPath = path.join('\\');
+        
+        var osPath = Components.classes["@activestate.com/koOsPath;1"].
+            getService(Components.interfaces.koIOsPath);
+        
+        if (!osPath.exists(fileToOpenPath)) {
+            ko.dialogs.alert("Can't find file " + fileToOpenPath);
+            return;
+        }
+        
+        // ko.open.URI is async
+        ko.open.URI (fileToOpenPath, "editor", false, callbackFn);
+};
+
+var switchTo = function (subType){
+
+    var FUNCTION_FOLDER = {
+        get_item_of  : 'Content',
+        select       : 'Content',
+        do_update    : 'Content',
+        do_create    : 'Content',
+        do_delete    : 'Content',
+        draw_item_of : 'Presentation',
+        draw         : 'Presentation'
+    };
+
+   _switchTo (FUNCTION_FOLDER [subType], function () {
+        _gotoSubname ('sub ' + subType + '_' + _getCurrentScreenType());
+    });
+}

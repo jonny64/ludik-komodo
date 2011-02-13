@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Komodo Project File - DO NOT EDIT -->
+<project id="74b0d6ab-1994-484d-a744-962cd200b5c6" kpf_version="5" name="kludi.komodoproject">
+<file id="d521fc0c-fa00-4880-a6a1-1e806c32c5bf" idref="354312ec-58d4-42b2-a3e8-f100d0f5c7a4" name="setup.xul" url="_prj_internal_/setup.xul">
+</file>
+<folder id="354312ec-58d4-42b2-a3e8-f100d0f5c7a4" idref="74b0d6ab-1994-484d-a744-962cd200b5c6" name="Project">
+</folder>
+<preference-set idref="74b0d6ab-1994-484d-a744-962cd200b5c6">
+  <boolean id="configured">1</boolean>
+</preference-set>
+</project>

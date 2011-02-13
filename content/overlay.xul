@@ -1,0 +1,59 @@
+<?xml version="1.0"?> <!DOCTYPE overlay PUBLIC "-//MOZILLA//DTD XUL V1.0//EN"
+"http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"> <overlay
+id="kludiOverlay"
+         xmlns:html="http://www.w3.org/1999/xhtml"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+  <script src="overlay.js"/>
+  
+  <commandset id="allcommands">
+    <command id="Tasks:GetItem" oncommand="switchTo('get_item_of');" />
+    <command id="Tasks:Select" oncommand="switchTo('select');" />
+    <command id="Tasks:Draw" oncommand="switchTo('draw');" />
+    <command id="Tasks:DrawItem" oncommand="switchTo('draw_item_of');" />
+    <command id="Tasks:Update" oncommand="switchTo('do_update');" />
+    <command id="Tasks:Delete" oncommand="switchTo('do_delete');" />
+    <command id="Tasks:Create" oncommand="switchTo('do_create');" />
+  </commandset>
+
+<!--  <keyset id="mainKeyset">
+      <key id="key_get_item" modifiers="alt" keycode="VK_G" oncommand="alert('alt-g');" disabled="false" />
+  </keyset>
+  
+  <broadcasterset id="broadcasterset_global">
+		<broadcaster id="b_get_item"  desc="Tools: get_item" oncommand="switchTo('get_item_of');" />
+  </broadcasterset>-->
+	
+  <menupopup id="popup_tools">
+      <menuitem id="get_item_of"
+          label="get_item_of"
+          observes="Tasks:GetItem"
+          class="menu-iconic-wide" />
+     <menuitem id="select"
+          label="select"
+          observes="Tasks:Select"
+          class="menu-iconic-wide" />
+      <menuitem id="draw"
+          label="draw"
+          observes="Tasks:Draw"
+          class="menu-iconic-wide" />
+      <menuitem id="draw_item"
+          label="draw_item"
+          observes="Tasks:DrawItem"
+          class="menu-iconic-wide" />
+      <menuitem id="update"
+         label="update"
+          observes="Tasks:Update"
+          class="menu-iconic-wide" />
+      <menuitem id="delete"
+          label="delete"
+          observes="Tasks:Delete"
+          class="menu-iconic-wide" key="key_get_item"/>
+      <menuitem id="create"
+          label="create"
+          observes="Tasks:Create"
+          class="menu-iconic-wide" />
+  </menupopup>
+    
+</overlay>
