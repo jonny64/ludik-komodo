@@ -1,59 +1,55 @@
-<?xml version="1.0"?> <!DOCTYPE overlay PUBLIC "-//MOZILLA//DTD XUL V1.0//EN"
-"http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"> <overlay
-id="ludikOverlay"
-         xmlns:html="http://www.w3.org/1999/xhtml"
-         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-         xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+<?xml version="1.0"?>
+<!DOCTYPE overlay PUBLIC "-//MOZILLA//DTD XUL V1.0//EN" "http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+<overlay id="ludikOverlay"
+	xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
 
-  <script src="overlay.js"/>
-  
-  <commandset id="allcommands">
-    <command id="Tasks:GetItem" oncommand="switchTo('get_item_of');" />
-    <command id="Tasks:Select" oncommand="switchTo('select');" />
-    <command id="Tasks:Draw" oncommand="switchTo('draw');" />
-    <command id="Tasks:DrawItem" oncommand="switchTo('draw_item_of');" />
-    <command id="Tasks:Update" oncommand="switchTo('do_update');" />
-    <command id="Tasks:Delete" oncommand="switchTo('do_delete');" />
-    <command id="Tasks:Create" oncommand="switchTo('do_create');" />
-  </commandset>
-
-<!--  <keyset id="mainKeyset">
-      <key id="key_get_item" modifiers="alt" keycode="VK_G" oncommand="alert('alt-g');" disabled="false" />
-  </keyset>
-  
-  <broadcasterset id="broadcasterset_global">
-		<broadcaster id="b_get_item"  desc="Tools: get_item" oncommand="switchTo('get_item_of');" />
-  </broadcasterset>-->
+	<script src="overlay.js"/>
 	
-  <menupopup id="popup_tools">
-      <menuitem id="get_item_of"
-          label="get_item_of"
-          observes="Tasks:GetItem"
-          class="menu-iconic-wide" />
-     <menuitem id="select"
-          label="select"
-          observes="Tasks:Select"
-          class="menu-iconic-wide" />
-      <menuitem id="draw"
-          label="draw"
-          observes="Tasks:Draw"
-          class="menu-iconic-wide" />
-      <menuitem id="draw_item"
-          label="draw_item"
-          observes="Tasks:DrawItem"
-          class="menu-iconic-wide" />
-      <menuitem id="update"
-         label="update"
-          observes="Tasks:Update"
-          class="menu-iconic-wide" />
-      <menuitem id="delete"
-          label="delete"
-          observes="Tasks:Delete"
-          class="menu-iconic-wide" key="key_get_item"/>
-      <menuitem id="create"
-          label="create"
-          observes="Tasks:Create"
-          class="menu-iconic-wide" />
-  </menupopup>
-    
+	<commandset id="allcommands">
+		<command id="cmd_get_item" oncommand="switchTo('get_item_of');" desc="ludik: get_item"/>
+		<command id="cmd_select" oncommand="switchTo('select');" desc="ludik: select"/>
+		<command id="cmd_draw" oncommand="switchTo('draw');" desc="ludik: draw"/>
+		<command id="cmd_draw_item" oncommand="switchTo('draw_item_of');" desc="ludik: draw_item"/>
+		<command id="cmd_do_update" oncommand="switchTo('do_update');" desc="ludik: do_update"/>
+		<command id="cmd_do_delete" oncommand="switchTo('do_delete');" desc="ludik: do_delete"/>
+		<command id="cmd_do_create" oncommand="switchTo('do_create');" desc="ludik: do_create"/>
+	</commandset>
+
+	<menupopup id="popup_tools">
+		<menuseparator/>
+		<menuitem id="get_item_of"
+			label="get_item"
+			observes="cmd_get_item"
+			class="menu-iconic-wide" />
+		<menuitem id="select"
+			label="select"
+			observes="cmd_select"
+			class="menu-iconic-wide" />
+		<menuseparator/>
+		<menuitem id="draw"
+			label="draw"
+			observes="cmd_draw"
+			class="menu-iconic-wide" />
+		<menuitem id="draw_item"
+			label="draw_item"
+			observes="cmd_draw_item"
+			class="menu-iconic-wide" />
+		<menuseparator/>
+		<menuitem id="do_update"
+			label="do_update"
+			observes="cmd_do_update"
+			class="menu-iconic-wide" />
+		<menuitem id="do_delete"
+			label="do_delete"
+			observes="cmd_do_delete"
+			class="menu-iconic-wide"/>
+		<menuitem id="do_create"
+			label="do_create"
+			observes="cmd_do_create"
+			class="menu-iconic-wide" />
+		<menuseparator/>
+	</menupopup>
+ 
 </overlay>

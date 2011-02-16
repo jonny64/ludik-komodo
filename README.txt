@@ -6,9 +6,10 @@
 
 2. INSTALLATION
 
-    simply draw-drop .xpi file to Komodo Edit window
+    simply drag-and-drop .xpi file to Komodo Edit window
 
 
 3. USAGE
 
-    visit Tools menu
+    Assign shortcuts via Edit - Preferences - Editor - Keybindings 
+    or use Tools menu
