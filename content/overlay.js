@@ -7,9 +7,15 @@ var _getCurrentScreenType = function () {
 };
 
 var _gotoSubname = function (subname) {
-        var position = ko.views.manager.currentView.scimoz.text.indexOf(subname);        
-        ko.views.manager.currentView.scimoz.gotoPos(position);
-        ko.views.manager.currentView.scimoz.scrollCaret();
+     var scimoz = ko.views.manager.currentView.scimoz;
+	
+     scimoz.currentPos = scimoz.anchor = 0;
+     scimoz.searchAnchor();
+     var pos = scimoz.searchNext(0, subname);
+     if (pos != -1) {
+          scimoz.gotoPos(pos);
+          scimoz.scrollCaret();
+     }
 };
 
 var _switchTo = function (folderType, callbackFn) {
