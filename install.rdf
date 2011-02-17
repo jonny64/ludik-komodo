@@ -4,7 +4,7 @@
     <Description about="urn:mozilla:install-manifest">
         <em:id>ludik@cheby.ru</em:id>
         <em:name>ludik</em:name>
-        <em:version>0.1</em:version>
+        <em:version>0.11</em:version>
         <em:description></em:description>
         <em:creator>jonny64</em:creator>
         <em:homepageURL>https://github.com/jonny64/ludik</em:homepageURL>

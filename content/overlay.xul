@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
 <!DOCTYPE overlay PUBLIC "-//MOZILLA//DTD XUL V1.0//EN" "http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
 <overlay id="ludikOverlay"
 	xmlns:html="http://www.w3.org/1999/xhtml"
 	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
@@ -8,13 +9,14 @@
 	<script src="overlay.js"/>
 	
 	<commandset id="allcommands">
-		<command id="cmd_get_item" oncommand="switchTo('get_item_of');" desc="ludik: get_item"/>
-		<command id="cmd_select" oncommand="switchTo('select');" desc="ludik: select"/>
-		<command id="cmd_draw" oncommand="switchTo('draw');" desc="ludik: draw"/>
-		<command id="cmd_draw_item" oncommand="switchTo('draw_item_of');" desc="ludik: draw_item"/>
-		<command id="cmd_do_update" oncommand="switchTo('do_update');" desc="ludik: do_update"/>
-		<command id="cmd_do_delete" oncommand="switchTo('do_delete');" desc="ludik: do_delete"/>
-		<command id="cmd_do_create" oncommand="switchTo('do_create');" desc="ludik: do_create"/>
+		<command id="cmd_get_item" oncommand="Ludik.switchTo('get_item_of');" desc="ludik: get_item"/>
+		<command id="cmd_select" oncommand="Ludik.switchTo('select');" desc="ludik: select"/>
+		<command id="cmd_draw" oncommand="Ludik.switchTo('draw');" desc="ludik: draw"/>
+		<command id="cmd_draw_item" oncommand="Ludik.switchTo('draw_item_of');" desc="ludik: draw_item"/>
+		<command id="cmd_do_update" oncommand="Ludik.switchTo('do_update');" desc="ludik: do_update"/>
+		<command id="cmd_do_delete" oncommand="Ludik.switchTo('do_delete');" desc="ludik: do_delete"/>
+		<command id="cmd_do_create" oncommand="Ludik.switchTo('do_create');" desc="ludik: do_create"/>
+		<command id="cmd_goto_model" oncommand="Ludik.gotoModel();" desc="ludik: model"/>
 	</commandset>
 
 	<menupopup id="popup_tools">
@@ -50,6 +52,10 @@
 			observes="cmd_do_create"
 			class="menu-iconic-wide" />
 		<menuseparator/>
+		<menuitem id="goto_model"
+			label="model"
+			observes="cmd_goto_model"
+			class="menu-iconic-wide" />
 	</menupopup>
- 
+	
 </overlay>
