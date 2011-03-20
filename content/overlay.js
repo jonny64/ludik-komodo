@@ -20,22 +20,25 @@ var Ludik = (function(){
 	};
 	
 	var _switchTo = function (folderType, callbackFn) {
-		var path = ko.views.manager.currentView.koDoc.file.dirName.split('\\');
-	
-		path.splice(path.length - 1, 1, folderType);
-		path.push(_getCurrentScreenType() + '.pm');
-		var fileToOpenPath = path.join('\\');
-	
+		var currentScreenDir = ko.views.manager.currentView.koDoc.file.dirName;
+		
 		var osPath = Components.classes["@activestate.com/koOsPath;1"].
 			getService(Components.interfaces.koIOsPath);
 	
-		if (!osPath.exists(fileToOpenPath)) {
-			ko.dialogs.alert("Can't find file " + fileToOpenPath);
+		var libDir = osPath.dirname(currentScreenDir);
+		var switchedScreenPath = osPath.join(libDir, folderType);
+		var switchedScreenFile = osPath.join(
+			switchedScreenPath,
+			_getCurrentScreenType() + '.pm'
+		);
+		
+		if (!osPath.exists(switchedScreenFile)) {
+			ko.dialogs.alert("Can't find file " + switchedScreenFile);
 			return;
 		}
 	
 		// ko.open.URI is async
-		ko.open.URI (fileToOpenPath, "editor", false, callbackFn);
+		ko.open.URI (switchedScreenFile , "editor", false, callbackFn);
 	};
 	
 	var _getCurrentFolder = function () {
