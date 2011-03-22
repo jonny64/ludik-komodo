@@ -41,11 +41,54 @@ var Ludik = (function(){
 		ko.open.URI (switchedScreenFile , "editor", false, callbackFn);
 	};
 	
-	var _getCurrentFolder = function () {
-		var path = ko.views.manager.currentView.koDoc.file.dirName.split('\\');
-		return path [path.length - 1];
+	var _parentFolder = function (folder){
+		return ko.uriparse.baseName(folder);
 	}
 	
+	var _getCurrentFolder = function (){
+		return _parentFolder(ko.views.manager.currentView.koDoc.file.dirName);
+	}
+	
+	function _setCurrentTabLabel (label){
+		
+		var view = ko.views.manager.currentView;
+		var tabs = view.parentNode.parentNode.parentNode.tabs;
+		var tabPanels = tabs.parentNode.childNodes[1];
+		var currentTab;
+		tabPanels = tabPanels.childNodes;
+		for (var i = 0; i < tabPanels.length; i++) {
+			if (tabPanels[i].childNodes[0] == view) {
+				currentTab = tabs.childNodes[i];
+				break;
+			}
+		}
+		
+		if (!currentTab) {
+			ko.dialogs.alert("_setCurrentTabLabel: can't find current tab!");
+			return;
+		}
+		currentTab.label = label;
+	}
+	
+	var _onViewOpen = function (event) {
+		
+		var PARENT_DIR_SUFFIX = {
+			'Content'      : '(C)',
+			'Model'        : '(M)',
+			'Presentation' : '(P)'
+		};
+		
+		var file = event.originalTarget.koDoc.file;
+		var parentDir = _parentFolder(file.dirName);
+		
+		var suffix = PARENT_DIR_SUFFIX [parentDir];
+		if (suffix) {
+			_setCurrentTabLabel(file.baseName + suffix);
+		}
+	};
+	
+	window.addEventListener('view_opened', _onViewOpen, false);
+
 	return {
 		switchTo : function (subType){
 	
@@ -67,7 +110,8 @@ var Ludik = (function(){
 		gotoModel : function () {
 			
 			if (_getCurrentFolder () != 'Model') {
-				this._oldFolder = _getCurrentFolder();	
+				this._oldFolder = _getCurrentFolder();
+				alert (this._oldFolder);
 				_switchTo('Model');
 				return;
 			}
