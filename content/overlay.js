@@ -111,7 +111,6 @@ var Ludik = (function(){
 			
 			if (_getCurrentFolder () != 'Model') {
 				this._oldFolder = _getCurrentFolder();
-				alert (this._oldFolder);
 				_switchTo('Model');
 				return;
 			}
